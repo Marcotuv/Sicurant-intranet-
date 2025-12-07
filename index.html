@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafetyNet Intranet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                500: '#3b82f6',
+                600: '#2563eb',
+                700: '#1d4ed8',
+                800: '#1e40af',
+                900: '#1e3a8a',
+              }
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2",
+    "vite": "https://aistudiocdn.com/vite@^7.2.6",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "idb-keyval": "https://unpkg.com/idb-keyval@6.2.1/dist/index.js",
+    "zod": "https://esm.sh/zod@3.22.4",
+    "react-window": "https://esm.sh/react-window@1.8.10?external=react,react-dom"
+  }
+}
+</script>
+<style>
+  /* Stili per la stampa nativa (PDF vettoriale) */
+  @media print {
+    @page { margin: 10mm; size: A4; }
+    body { background: white; color: black; font-family: sans-serif; }
+    
+    /* Nascondi elementi UI non necessari */
+    nav, header, aside, .no-print, button, input[type="text"], select { display: none !important; }
+    
+    /* Layout Report */
+    .print-only { display: block !important; }
+    
+    /* Assicura che i contenitori si espandano */
+    #root, main, .container { width: 100% !important; margin: 0 !important; padding: 0 !important; overflow: visible !important; height: auto !important; }
+    
+    /* Forza background colors per grafici/tabelle */
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    
+    /* Page Breaks */
+    .break-before-page { page-break-before: always; }
+    .break-inside-avoid { page-break-inside: avoid; }
+    
+    /* Typography per stampa */
+    h1 { font-size: 24pt; margin-bottom: 10mm; }
+    h2 { font-size: 18pt; margin-bottom: 5mm; }
+    table { width: 100%; border-collapse: collapse; font-size: 10pt; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f3f4f6; font-weight: bold; }
+  }
+  
+  .print-only { display: none; }
+  
+  /* Scrollbar Custom */
+  .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 3px; }
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #475569; }
+</style>
+</head>
+  <body class="bg-gray-100 dark:bg-slate-900 text-gray-800 dark:text-gray-100 transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
